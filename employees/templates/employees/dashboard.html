@@ -1,0 +1,30 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+<br>
+<br>
+<div id="dashboard">
+    
+    <ul class="collection with-header">
+        
+        <li class="collection-header">
+            <h4>Employees</h4>
+        </li>
+        {% for employee in employees %}
+        <li class="collection-item">
+            <div class="chip"> {{employee.department}}</div>{{employee.employee_id}}:{{ employee.name }}
+
+            <a href="{% url 'view-employee' employee.id %}" class="secondary-content">
+                <i class="fa fa-eye"></i>
+             </a>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <div class="fixed-action-btn">
+        <a href="{% url 'add-employee' %}"  class="btn-floating btn-large red">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+</div>
+{% endblock %}

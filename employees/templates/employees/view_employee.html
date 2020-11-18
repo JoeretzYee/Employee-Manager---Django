@@ -1,0 +1,22 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+<div id="viewEmployee">
+    <ul class="collection with-header">
+        <li class="collection-header">
+            <h4>{{employee.name}}</h4>
+        </li>
+        <li class="collection-item">Employee ID#: {{employee.employee_id}}</li>
+        <li class="collection-item">Department: {{employee.department}}</li>
+        <li class="collection-item">Position: {{employee.position}}</li>
+    </ul>
+    <a href="{% url 'dashboard' %}"  class="btn grey">Back</a> &nbsp;
+    <a href="{% url 'delete-employee' employee.id %}"  class="btn red">Delete</a>
+
+    <div class="fixed-action-btn">
+        <a href="{% url 'edit-employee' employee.id %}" class="btn-floating btn-large green">
+            <i class="fa fa-pencil"></i></a>
+    </div>
+</div>
+
+{% endblock %}
